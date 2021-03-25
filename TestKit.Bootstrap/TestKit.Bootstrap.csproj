@@ -7,11 +7,13 @@
     <PackageProjectUrl></PackageProjectUrl>
     <PackageId>TestKit.Bootstrap</PackageId>
     <RepositoryUrl>https://github.com/jordan-mace/TestKit</RepositoryUrl>
-    <AssemblyVersion>1.0.3.0</AssemblyVersion>
-    <FileVersion>1.0.3.0</FileVersion>
-    <Version>1.0.3</Version>
+    <AssemblyVersion>1.0.4.0</AssemblyVersion>
+    <FileVersion>1.0.4.0</FileVersion>
+    <Version>1.0.4</Version>
     <Description>TestKit is a powerful Selenium extension library, providing Bootstrap selectors to significantly speed up automated test development</Description>
-    <PackageReleaseNotes>TestKit is a powerful Selenium extension library, providing Bootstrap selectors to significantly speed up automated test development</PackageReleaseNotes>
+    <PackageReleaseNotes>1.0.4
+* Add BootstrapDropdown
+* Add BootstrapDropdownItem</PackageReleaseNotes>
     <PackageTags>selenium, bootstrap</PackageTags>
   </PropertyGroup>
 

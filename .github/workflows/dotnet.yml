@@ -21,3 +21,5 @@ jobs:
       run: dotnet build
     - name: Test
       run: dotnet test --no-build --verbosity normal
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

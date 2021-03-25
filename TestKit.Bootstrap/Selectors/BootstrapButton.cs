@@ -21,7 +21,10 @@ namespace TestKit.Bootstrap.Selectors
 
         private ReadOnlyCollection<IWebElement> GetByClassName(ISearchContext context)
         {
-            return context.FindElements(By.ClassName("btn"));
+            if (string.IsNullOrEmpty(Hint)) 
+                return context.FindElements(By.ClassName("btn"));
+
+            return new ReadOnlyCollection<IWebElement>(new List<IWebElement>());
         }
 
         private ReadOnlyCollection<IWebElement> FindByButtonText(ISearchContext context)

@@ -12,6 +12,7 @@ namespace TestKit.Bootstrap.Selectors
             Hint = hint;
             Methods.Add(GetByClassName);
             Methods.Add(FindByButtonText);
+            Methods.Add(GetByNavItem);
         }
 
         public static BootstrapMenuItem WithHint(string hint)
@@ -21,7 +22,21 @@ namespace TestKit.Bootstrap.Selectors
 
         private ReadOnlyCollection<IWebElement> GetByClassName(ISearchContext context)
         {
-            return context.FindElements(By.ClassName("menu-item"));
+            if (string.IsNullOrEmpty(Hint)) 
+                return context.FindElements(ClassName("menu-item"));
+
+            return new ReadOnlyCollection<IWebElement>(new List<IWebElement>());
+        }
+
+        private ReadOnlyCollection<IWebElement> GetByNavItem(ISearchContext context)
+        {
+            if (string.IsNullOrEmpty(Hint)) return new ReadOnlyCollection<IWebElement>(new List<IWebElement>());
+
+            return new ReadOnlyCollection<IWebElement>
+                (context.FindElements(ClassName("nav-item"))
+                .Where(z => z.GetProperty("textContent")
+                .Contains(Hint))
+                .ToList());
         }
 
         private ReadOnlyCollection<IWebElement> FindByButtonText(ISearchContext context)
@@ -29,7 +44,7 @@ namespace TestKit.Bootstrap.Selectors
             if (string.IsNullOrEmpty(Hint)) return new ReadOnlyCollection<IWebElement>(new List<IWebElement>());
 
             return new ReadOnlyCollection<IWebElement>
-                (context.FindElements(By.ClassName("menu-item"))
+                (context.FindElements(ClassName("menu-item"))
                 .Where(z => z.GetProperty("textContent")
                 .Contains(Hint))
                 .ToList());

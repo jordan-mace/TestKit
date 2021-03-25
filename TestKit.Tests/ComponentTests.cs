@@ -22,10 +22,18 @@ namespace TestKit.Tests
         }
 
         [Test]
-        public void Test1()
+        public void BootstrapButtons()
         {
-            _driver.Navigate().GoToUrl("https://www.jordanmace.dev");
-            _driver.FindElement(BootstrapMenuItem.WithHint("Blog")).Click();
+            _driver.Navigate().GoToUrl("https://getbootstrap.com/");
+            _driver.FindElement(BootstrapButton.WithHint("Get started")).Click();
+            Assert.Pass();
+        }
+
+        [Test]
+        public void BootstrapMenuItems()
+        {
+            _driver.Navigate().GoToUrl("https://getbootstrap.com/docs/5.0/examples/navbar-static/");
+            _driver.FindElement(BootstrapMenuItem.WithHint("Link")).Click();
             Assert.Pass();
         }
     }

@@ -12,7 +12,10 @@
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.9.1" />
     <PackageReference Include="Selenium.WebDriver" Version="3.141.0" />
     <PackageReference Include="Selenium.WebDriver.ChromeDriver" Version="89.0.4389.2300" />
-    <PackageReference Include="TestKit.Bootstrap" Version="1.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TestKit.Bootstrap\TestKit.Bootstrap.csproj" />
   </ItemGroup>
 
 </Project>

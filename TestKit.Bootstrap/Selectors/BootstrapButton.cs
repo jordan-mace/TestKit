@@ -22,7 +22,7 @@ namespace TestKit.Bootstrap.Selectors
         private ReadOnlyCollection<IWebElement> GetByClassName(ISearchContext context)
         {
             if (string.IsNullOrEmpty(Hint)) 
-                return context.FindElements(By.ClassName("btn"));
+                return context.FindElements(ClassName("btn"));
 
             return new ReadOnlyCollection<IWebElement>(new List<IWebElement>());
         }
@@ -32,7 +32,7 @@ namespace TestKit.Bootstrap.Selectors
             if (string.IsNullOrEmpty(Hint)) return new ReadOnlyCollection<IWebElement>(new List<IWebElement>());
 
             return new ReadOnlyCollection<IWebElement>
-                (context.FindElements(By.ClassName("btn"))
+                (context.FindElements(ClassName("btn"))
                 .Where(z => z.GetProperty("textContent")
                 .Contains(Hint))
                 .ToList());

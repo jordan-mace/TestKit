@@ -11,7 +11,7 @@ namespace TestKit.Bootstrap.Selectors
         {
             Hint = hint;
             Methods.Add(GetByClassName);
-            Methods.Add(FindByButtonText);
+            Methods.Add(FindByContents);
             Methods.Add(GetByNavItem);
         }
 
@@ -39,7 +39,7 @@ namespace TestKit.Bootstrap.Selectors
                 .ToList());
         }
 
-        private ReadOnlyCollection<IWebElement> FindByButtonText(ISearchContext context)
+        private ReadOnlyCollection<IWebElement> FindByContents(ISearchContext context)
         {
             if (string.IsNullOrEmpty(Hint)) return new ReadOnlyCollection<IWebElement>(new List<IWebElement>());
 

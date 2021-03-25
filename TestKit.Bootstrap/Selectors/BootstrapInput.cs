@@ -11,6 +11,7 @@ namespace TestKit.Bootstrap.Selectors
         {
             Hint = hint;
             Methods.Add(GetByLabel);
+            Methods.Add(GetByPlaceholder);
         }
 
         public static BootstrapInput WithHint(string hint)
@@ -20,13 +21,23 @@ namespace TestKit.Bootstrap.Selectors
 
         private ReadOnlyCollection<IWebElement> GetByLabel(ISearchContext context)
         {
-            if (string.IsNullOrEmpty(Hint)) return new ReadOnlyCollection<IWebElement>(new List<IWebElement>());
+            if (string.IsNullOrEmpty(Hint)) 
+                return new ReadOnlyCollection<IWebElement>(new List<IWebElement>());
 
             var labelAttr = context.FindElements(TagName("label"))
                 .Single(z => z.GetProperty("textContent") == Hint)
                 .GetAttribute("for");
 
             return new ReadOnlyCollection<IWebElement>(context.FindElements(By.Id(labelAttr)).ToList());
+        }
+
+        private ReadOnlyCollection<IWebElement> GetByPlaceholder(ISearchContext context)
+        {
+            if (string.IsNullOrEmpty(Hint)) 
+                return new ReadOnlyCollection<IWebElement>(new List<IWebElement>());
+
+            return new ReadOnlyCollection<IWebElement>(context.FindElements(TagName("input"))
+                .Where(z => z.GetAttribute("placeholder") == Hint).ToList());
         }
     }
 }

@@ -2,6 +2,7 @@ using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using TestKit.Bootstrap.Selectors;
+using TestKit.Bootstrap.Selectors.Dropdowns;
 
 namespace TestKit.Tests
 {
@@ -40,6 +41,13 @@ namespace TestKit.Tests
         {
             _driver.Navigate().GoToUrl("https://getbootstrap.com/docs/5.0/examples/checkout/");
             _driver.FindElement(BootstrapInput.WithHint("First name")).SendKeys("test123");
+        }
+
+        [Test]
+        public void BootstrapDropdowns()
+        {
+            _driver.Navigate().GoToUrl("https://getbootstrap.com/docs/5.0/examples/navbars/");
+            _driver.FindElement(BootstrapDropdown.WithHint("Dropdown"));
         }
     }
 }

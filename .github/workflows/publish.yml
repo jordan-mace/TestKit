@@ -18,4 +18,4 @@ jobs:
           PROJECT_FILE_PATH: TestKit.Bootstrap/TestKit.Bootstrap.csproj
 
           # API key to authenticate with NuGet server
-          NUGET_KEY: ${{secrets.NUGET_API_KEY}}
+          NUGET_KEY: ${{secrets.NUGET_KEY}}

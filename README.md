@@ -4,6 +4,11 @@ TestKit is a collection of libraries to provide simple, powerful Selenium select
 ## Purpose
 The purpose of this project is to provide easy to use selectors for use with Selenium.
 
+* BootstrapButton
+* BootstrapCheckbox
+* BoostrapInput
+* And more
+
 ## How to use
 
 TestKit selectors can be used as follows

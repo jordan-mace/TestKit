@@ -5,18 +5,21 @@ using System.Linq;
 
 namespace TestKit.Bootstrap.Selectors
 {
-    public class BootstrapButton : CustomBy
+    /// <summary>
+    /// Used to identify a Bootstrap button on a webpage.
+    /// </summary>
+    public class Button : CustomBy
     {
-        public BootstrapButton(string hint)
+        public Button(string hint)
         {
             Hint = hint;
             Methods.Add(GetByClassName);
             Methods.Add(FindByButtonText);
         }
 
-        public static BootstrapButton WithHint(string hint)
+        public static Button WithHint(string hint)
         {
-            return new BootstrapButton(hint);
+            return new Button(hint);
         }
 
         private ReadOnlyCollection<IWebElement> GetByClassName(ISearchContext context)

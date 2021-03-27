@@ -6,9 +6,10 @@ TestKit is a collection of libraries to provide simple, powerful Selenium select
 ## Purpose
 The purpose of this project is to provide easy to use selectors for use with Selenium.
 
-* BootstrapButton
-* BootstrapCheckbox
-* BoostrapInput
+* Button
+* Checkbox
+* Input
+* RadioButton
 * And more
 
 ## How to use
@@ -20,6 +21,6 @@ TestKit selectors can be used as follows
 public void BootstrapButtons()
 {
     _driver.Navigate().GoToUrl("https://getbootstrap.com/");
-    _driver.FindElement(BootstrapButton.WithHint("Get started")).Click();
+    _driver.FindElement(Button.WithHint("Get started")).Click();
 }
 ```

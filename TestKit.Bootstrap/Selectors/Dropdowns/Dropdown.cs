@@ -5,17 +5,20 @@ using System.Linq;
 
 namespace TestKit.Bootstrap.Selectors.Dropdowns
 {
-    public class BootstrapDropdown : CustomBy
+    /// <summary>
+    /// Used to identify a Bootstrap select or dropdown on a webpage.
+    /// </summary>
+    public class Dropdown : CustomBy
     {
-        public BootstrapDropdown(string hint)
+        public Dropdown(string hint)
         {
             Hint = hint;
             Methods.Add(FindByContents);
         }
 
-        public static BootstrapDropdown WithHint(string hint)
+        public static Dropdown WithHint(string hint)
         {
-            return new BootstrapDropdown(hint);
+            return new Dropdown(hint);
         }
 
         private ReadOnlyCollection<IWebElement> FindByContents(ISearchContext context)

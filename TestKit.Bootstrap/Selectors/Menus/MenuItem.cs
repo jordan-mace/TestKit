@@ -5,9 +5,12 @@ using System.Linq;
 
 namespace TestKit.Bootstrap.Selectors
 {
-    public class BootstrapMenuItem : CustomBy
+    /// <summary>
+    /// Used to identify a Bootstrap menu item inside a navbar on a webpage.
+    /// </summary>
+    public class MenuItem : CustomBy
     {
-        public BootstrapMenuItem(string hint)
+        public MenuItem(string hint)
         {
             Hint = hint;
             Methods.Add(GetByClassName);
@@ -15,9 +18,9 @@ namespace TestKit.Bootstrap.Selectors
             Methods.Add(GetByNavItem);
         }
 
-        public static BootstrapMenuItem WithHint(string hint)
+        public static MenuItem WithHint(string hint)
         {
-            return new BootstrapMenuItem(hint);
+            return new MenuItem(hint);
         }
 
         private ReadOnlyCollection<IWebElement> GetByClassName(ISearchContext context)

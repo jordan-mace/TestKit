@@ -5,16 +5,19 @@ using System.Linq;
 
 namespace TestKit.Bootstrap.Selectors
 {
-    public class BootstrapInput : LabelledItem
+    /// <summary>
+    /// Used to identify a Bootstrap input element on a webpage.
+    /// </summary>
+    public class Input : LabelledItem
     {
-        public BootstrapInput(string hint) : base(hint)
+        public Input(string hint) : base(hint)
         {
             Methods.Add(GetByPlaceholder);
         }
 
-        public static BootstrapInput WithHint(string hint)
+        public static Input WithHint(string hint)
         {
-            return new BootstrapInput(hint);
+            return new Input(hint);
         }
 
         private ReadOnlyCollection<IWebElement> GetByPlaceholder(ISearchContext context)

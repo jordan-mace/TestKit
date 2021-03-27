@@ -5,17 +5,20 @@ using System.Linq;
 
 namespace TestKit.Bootstrap.Selectors
 {
-    public class BootstrapCheckbox : LabelledItem
+    /// <summary>
+    /// Used to identify a Bootstrap checkbox on a webpage.
+    /// </summary>
+    public class Checkbox : LabelledItem
     {
-        public BootstrapCheckbox(string hint) : base(hint)
+        public Checkbox(string hint) : base(hint)
         {
             Hint = hint;
             Methods.Add(GetByClassName);
         }
 
-        public static BootstrapCheckbox WithHint(string hint)
+        public static Checkbox WithHint(string hint)
         {
-            return new BootstrapCheckbox(hint);
+            return new Checkbox(hint);
         }
 
         private ReadOnlyCollection<IWebElement> GetByClassName(ISearchContext context)

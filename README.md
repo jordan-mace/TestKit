@@ -1,4 +1,4 @@
-![Nuget](https://img.shields.io/nuget/v/TestKit.Bootstrap?style=flat-square)
+[![Nuget](https://img.shields.io/nuget/v/TestKit.Bootstrap?style=flat-square)](https://www.nuget.org/packages/TestKit.Bootstrap/)
 ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/jordan-mace/TestKit/.NET?style=flat-square)
 # TestKit
 TestKit is a collection of libraries to provide simple, powerful Selenium selectors

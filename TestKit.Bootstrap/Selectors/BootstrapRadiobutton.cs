@@ -1,34 +1,12 @@
-﻿using OpenQA.Selenium;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-
-namespace TestKit.Bootstrap.Selectors
+﻿namespace TestKit.Bootstrap.Selectors
 {
-    public class BootstrapRadiobutton : CustomBy
+    public class BootstrapRadiobutton : LabelledItem
     {
-        public BootstrapRadiobutton(string hint)
-        {
-            Hint = hint;
-            Methods.Add(GetByLabel);
-        }
+        public BootstrapRadiobutton(string hint) : base(hint) { }
 
         public static BootstrapRadiobutton WithHint(string hint)
         {
             return new BootstrapRadiobutton(hint);
-        }
-
-        private ReadOnlyCollection<IWebElement> GetByLabel(ISearchContext context)
-        {
-            if (string.IsNullOrEmpty(Hint))
-                return new ReadOnlyCollection<IWebElement>(new List<IWebElement>());
-
-            var forItems = context.FindElements(TagName("label"))
-                .Where(z => !string.IsNullOrEmpty(z.GetAttribute("for")))
-                .Where(z => z.GetProperty("textContent").Trim() == Hint)
-                .Select(x => context.FindElement(Id(x.GetAttribute("for"))));
-
-            return new ReadOnlyCollection<IWebElement>(forItems.ToList());
         }
     }
 }

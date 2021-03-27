@@ -5,31 +5,16 @@ using System.Linq;
 
 namespace TestKit.Bootstrap.Selectors
 {
-    public class BootstrapInput : CustomBy
+    public class BootstrapInput : LabelledItem
     {
-        public BootstrapInput(string hint)
+        public BootstrapInput(string hint) : base(hint)
         {
-            Hint = hint;
-            Methods.Add(GetByLabel);
             Methods.Add(GetByPlaceholder);
         }
 
         public static BootstrapInput WithHint(string hint)
         {
             return new BootstrapInput(hint);
-        }
-
-        private ReadOnlyCollection<IWebElement> GetByLabel(ISearchContext context)
-        {
-            if (string.IsNullOrEmpty(Hint))
-                return new ReadOnlyCollection<IWebElement>(new List<IWebElement>());
-
-            var forItems = context.FindElements(TagName("label"))
-                .Where(z => !string.IsNullOrEmpty(z.GetAttribute("for")))
-                .Where(z => z.GetProperty("textContent").Trim() == Hint)
-                .Select(x => context.FindElement(Id(x.GetAttribute("for"))));
-
-            return new ReadOnlyCollection<IWebElement>(forItems.ToList());
         }
 
         private ReadOnlyCollection<IWebElement> GetByPlaceholder(ISearchContext context)

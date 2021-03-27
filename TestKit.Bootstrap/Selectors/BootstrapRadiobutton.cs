@@ -5,18 +5,17 @@ using System.Linq;
 
 namespace TestKit.Bootstrap.Selectors
 {
-    public class BootstrapInput : CustomBy
+    public class BootstrapRadiobutton : CustomBy
     {
-        public BootstrapInput(string hint)
+        public BootstrapRadiobutton(string hint)
         {
             Hint = hint;
             Methods.Add(GetByLabel);
-            Methods.Add(GetByPlaceholder);
         }
 
-        public static BootstrapInput WithHint(string hint)
+        public static BootstrapRadiobutton WithHint(string hint)
         {
-            return new BootstrapInput(hint);
+            return new BootstrapRadiobutton(hint);
         }
 
         private ReadOnlyCollection<IWebElement> GetByLabel(ISearchContext context)
@@ -30,15 +29,6 @@ namespace TestKit.Bootstrap.Selectors
                 .Select(x => context.FindElement(Id(x.GetAttribute("for"))));
 
             return new ReadOnlyCollection<IWebElement>(forItems.ToList());
-        }
-
-        private ReadOnlyCollection<IWebElement> GetByPlaceholder(ISearchContext context)
-        {
-            if (string.IsNullOrEmpty(Hint)) 
-                return new ReadOnlyCollection<IWebElement>(new List<IWebElement>());
-
-            return new ReadOnlyCollection<IWebElement>(context.FindElements(TagName("input"))
-                .Where(z => z.GetAttribute("placeholder") == Hint).ToList());
         }
     }
 }

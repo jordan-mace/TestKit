@@ -10,13 +10,13 @@ namespace TestKit.Tests
     {
         private IWebDriver _driver;
 
-        [SetUp]
+        [OneTimeSetUp]
         public void Setup()
         {
             _driver = new ChromeDriver();
         }
 
-        [TearDown]
+        [OneTimeTearDown]
         public void TearDown()
         {
             _driver.Quit();
@@ -37,11 +37,22 @@ namespace TestKit.Tests
         }
 
         [Test]
-        public void BootstrapInputs()
+        public void BootstrapSignin()
         {
-            _driver.Navigate().GoToUrl("https://getbootstrap.com/docs/5.0/examples/checkout/");
-            _driver.FindElement(BootstrapInput.WithHint("First name")).SendKeys("test123");
+            _driver.Navigate().GoToUrl("https://getbootstrap.com/docs/5.0/examples/sign-in/");
+            _driver.FindElement(BootstrapInput.WithHint("Email address")).SendKeys("test123@test.com");
+            _driver.FindElement(BootstrapInput.WithHint("Password")).SendKeys("aaaa");
+            _driver.FindElement(BootstrapCheckbox.WithHint("Remember me")).Click();
+            _driver.FindElement(BootstrapButton.WithHint("Sign in")).Click();
         }
+
+        //[Test]
+        //public void BootstrapInputs()
+        //{
+        //    _driver.Navigate().GoToUrl("https://getbootstrap.com/docs/5.0/examples/checkout/");
+        //    _driver.FindElement(BootstrapInput.WithHint("First name")).SendKeys("test123");
+        //    _driver.FindElement(BootstrapCheckbox.WithHint("Shipping address is the same as my billing address"));
+        //}
 
         [Test]
         public void BootstrapDropdowns()

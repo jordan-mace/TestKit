@@ -5,18 +5,18 @@ using System.Linq;
 
 namespace TestKit.Bootstrap.Selectors
 {
-    public class BootstrapInput : CustomBy
+    public class BootstrapCheckbox : CustomBy
     {
-        public BootstrapInput(string hint)
+        public BootstrapCheckbox(string hint)
         {
             Hint = hint;
             Methods.Add(GetByLabel);
-            Methods.Add(GetByPlaceholder);
+            Methods.Add(GetByClassName);
         }
 
-        public static BootstrapInput WithHint(string hint)
+        public static BootstrapCheckbox WithHint(string hint)
         {
-            return new BootstrapInput(hint);
+            return new BootstrapCheckbox(hint);
         }
 
         private ReadOnlyCollection<IWebElement> GetByLabel(ISearchContext context)
@@ -32,13 +32,12 @@ namespace TestKit.Bootstrap.Selectors
             return new ReadOnlyCollection<IWebElement>(forItems.ToList());
         }
 
-        private ReadOnlyCollection<IWebElement> GetByPlaceholder(ISearchContext context)
+        private ReadOnlyCollection<IWebElement> GetByClassName(ISearchContext context)
         {
-            if (string.IsNullOrEmpty(Hint)) 
+            if (string.IsNullOrEmpty(Hint))
                 return new ReadOnlyCollection<IWebElement>(new List<IWebElement>());
 
-            return new ReadOnlyCollection<IWebElement>(context.FindElements(TagName("input"))
-                .Where(z => z.GetAttribute("placeholder") == Hint).ToList());
+            return new ReadOnlyCollection<IWebElement>(context.FindElements(ClassName("checkbox")).Where(z => z.GetProperty("textContent").Trim() == Hint).ToArray());
         }
     }
 }

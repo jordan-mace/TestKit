@@ -1,0 +1,18 @@
+v1.0.7
+- Adds support for .NET 4.5.1
+
+v1.0.6
+- Renames selectors
+- Add Alert
+- Add Modal
+- Add Navbar
+- Add NavbarItem
+- Add Badge
+
+v1.0.5
+- Add BootstrapCheckbox
+- Add BootstrapRadiobutton
+
+v1.0.4
+- Add BootstrapDropdown
+- Add BootstrapDropdownItem

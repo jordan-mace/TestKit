@@ -11,26 +11,21 @@
     <FileVersion>1.0.6.0</FileVersion>
     <Version>1.0.6</Version>
     <Description>TestKit is a powerful Selenium extension library, providing Bootstrap selectors to significantly speed up automated test development</Description>
-    <PackageReleaseNotes>v1.0.6
-- Renames selectors
-- Add Alert
-- Add Modal
-- Add Navbar
-- Add NavbarItem
-- Add Badge
-
-v1.0.5
-- Add BootstrapCheckbox
-- Add BootstrapRadiobutton
-
-v1.0.4
-- Add BootstrapDropdown
-- Add BootstrapDropdownItem</PackageReleaseNotes>
+    <PackageReleaseNotes>Release notes go into RELEASE-NOTES.txt</PackageReleaseNotes>
     <PackageTags>selenium, bootstrap, selectors</PackageTags>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <Copyright></Copyright>
   </PropertyGroup>
+
+  <Target Name="PreparePackageReleaseNotesFromFile" BeforeTargets="GenerateNuspec">
+    <ReadLinesFromFile File="../RELEASE-NOTES.txt">
+      <Output TaskParameter="Lines" ItemName="ReleaseNoteLines" />
+    </ReadLinesFromFile>
+    <PropertyGroup>
+      <PackageReleaseNotes>$([System.IO.File]::ReadAllText("$(MSBuildProjectDirectory)/RELEASE-NOTES.txt"))</PackageReleaseNotes>
+    </PropertyGroup>
+  </Target>
 
   <ItemGroup>
     <PackageReference Include="Selenium.WebDriver" Version="3.141.0" />

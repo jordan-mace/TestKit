@@ -2,6 +2,7 @@
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using System.IO;
+using System.Reflection;
 
 namespace TestKit.Tests
 {
@@ -14,7 +15,11 @@ namespace TestKit.Tests
         public void Setup()
         {
             _driver = new ChromeDriver();
+#if NET451
+            _directory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+#else
             _directory = Directory.GetCurrentDirectory();
+#endif
         }
 
         [OneTimeTearDown]

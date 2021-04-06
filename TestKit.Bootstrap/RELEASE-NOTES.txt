@@ -1,5 +1,7 @@
 v1.0.7
-- Adds support for .NET 4.5.1
+- Add support for .NET 4.5.1
+- Add support for netcoreapp2.2
+- Add support for netcoreapp2.1
 
 v1.0.6
 - Renames selectors

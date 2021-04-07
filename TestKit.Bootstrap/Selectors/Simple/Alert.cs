@@ -21,7 +21,7 @@ namespace TestKit.Bootstrap.Selectors
             return new Alert(hint);
         }
 
-        public static Alert WithoutHint(string hint)
+        public static Alert WithoutHint()
         {
             return new Alert("");
         }

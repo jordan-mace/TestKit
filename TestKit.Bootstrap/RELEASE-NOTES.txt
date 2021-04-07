@@ -1,3 +1,6 @@
+v1.0.7.1-alpha2
+- Additional target frameworks
+
 v1.0.7.1-alpha
 - Add locator for alerts without hint
 

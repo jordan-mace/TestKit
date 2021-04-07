@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net5.0;net4.5.1;netcoreapp2.1;netcoreapp2.2</TargetFrameworks>
+    <TargetFrameworks>net5.0;net48;net47;net46;net45;netstandard2.1;netstandard2.0</TargetFrameworks>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Authors>Jordan Mace</Authors>
     <PackageProjectUrl>https://github.com/jordan-mace/TestKit</PackageProjectUrl>
@@ -9,7 +9,7 @@
     <RepositoryUrl>https://github.com/jordan-mace/TestKit</RepositoryUrl>
     <AssemblyVersion>1.0.7.1</AssemblyVersion>
     <FileVersion>1.0.7.1</FileVersion>
-    <Version>1.0.7.1-alpha</Version>
+    <Version>1.0.7.1-alpha2</Version>
     <Description>TestKit is a powerful Selenium extension library, providing Bootstrap selectors to significantly speed up automated test development</Description>
     <PackageReleaseNotes>Release notes go into RELEASE-NOTES.txt</PackageReleaseNotes>
     <PackageTags>selenium, bootstrap, selectors</PackageTags>

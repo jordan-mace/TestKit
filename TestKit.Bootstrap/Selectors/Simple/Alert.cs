@@ -21,6 +21,11 @@ namespace TestKit.Bootstrap.Selectors
             return new Alert(hint);
         }
 
+        public static Alert WithoutHint(string hint)
+        {
+            return new Alert("");
+        }
+
         private ReadOnlyCollection<IWebElement> FindByAlertText(ISearchContext context)
         {
             if (string.IsNullOrEmpty(Hint)) return new ReadOnlyCollection<IWebElement>(new List<IWebElement>());
@@ -29,6 +34,15 @@ namespace TestKit.Bootstrap.Selectors
                 (context.FindElements(ClassName("alert"))
                 .Where(z => z.GetProperty("textContent")
                 .Contains(Hint))
+                .ToList());
+        }
+
+        private ReadOnlyCollection<IWebElement> FindAllAlerts(ISearchContext context)
+        {
+            if (!string.IsNullOrEmpty(Hint)) return new ReadOnlyCollection<IWebElement>(new List<IWebElement>());
+
+            return new ReadOnlyCollection<IWebElement>
+                (context.FindElements(ClassName("alert"))
                 .ToList());
         }
     }
